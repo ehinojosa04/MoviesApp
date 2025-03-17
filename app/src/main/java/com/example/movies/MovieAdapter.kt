@@ -26,8 +26,9 @@ class MovieAdapter(private val context: Activity, private val arrayList: ArrayLi
         view.findViewById<TextView>(R.id.name).text = movie.name
         view.findViewById<TextView>(R.id.year).text = movie.year
         view.findViewById<TextView>(R.id.genre).text = movie.genre
+        view.findViewById<TextView>(R.id.location).text = "Last edited in: ${movie.latitude}, ${movie.longitude}"
 
-        val genreIcon = genreIconMap[movie.genre] ?: R.drawable.default_genre_icon // Fallback icon if genre is not mapped
+        val genreIcon = genreIconMap[movie.genre] ?: R.drawable.default_genre_icon
         view.findViewById<ImageView>(R.id.imageView).setImageResource(genreIcon)
 
         return view

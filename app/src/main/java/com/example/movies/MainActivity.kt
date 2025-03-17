@@ -59,7 +59,9 @@ class MainActivity : AppCompatActivity() {
                         name = node.child("name").value?.toString() ?: "",
                         year = node.child("year").value?.toString() ?: "",
                         genre = node.child("genre").value?.toString() ?: "",
-                        id = node.key?.toString() ?: ""
+                        id = node.key?.toString() ?: "",
+                        latitude = node.child("latitude").value?.toString() ?: "",
+                        longitude = node.child("longitude").value?.toString() ?: ""
                     )
                     data.add(movie)
                 }
@@ -86,6 +88,8 @@ class MainActivity : AppCompatActivity() {
                 putExtra("MOVIE_NAME", movie.name)
                 putExtra("MOVIE_YEAR", movie.year)
                 putExtra("MOVIE_GENRE", movie.genre)
+                putExtra("MOVIE_LATITUDE", movie.latitude)
+                putExtra("MOVIE_LONGITUDE", movie.longitude)
             }
             startActivity(intent)
         }

@@ -76,7 +76,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun makeList() {
         val list = findViewById<ListView>(R.id.list)
-        list.adapter = MovieAdapter(this, data)
+        val adapter = MovieAdapter(this, data)
+        list.adapter = adapter
+
+        list.setOnItemClickListener { _, _, position, _ ->
+            val movie = data[position]
+            val intent = Intent(this, Edit::class.java).apply {
+                putExtra("MOVIE_ID", movie.id)
+                putExtra("MOVIE_NAME", movie.name)
+                putExtra("MOVIE_YEAR", movie.year)
+                putExtra("MOVIE_GENRE", movie.genre)
+            }
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

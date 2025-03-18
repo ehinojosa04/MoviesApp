@@ -1,13 +1,15 @@
 package com.example.movies
 
 import android.app.Activity
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-class MovieAdapter(private val context: Activity, private val arrayList: ArrayList<Movie>) :
+
+class MovieAdapter(private val context: Context, private val arrayList: ArrayList<Movie>) :
     ArrayAdapter<Movie>(context, R.layout.item, arrayList) {
 
     private val genreIconMap = mapOf(

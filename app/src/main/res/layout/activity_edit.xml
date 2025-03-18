@@ -35,13 +35,19 @@
             android:id="@+id/editLatitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Latitude" />
+            android:hint="Latitude"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false" />
 
         <EditText
             android:id="@+id/editLongitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Longitude" />
+            android:hint="Longitude"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false" />
 
         <Button
             android:id="@+id/buttonEdit"

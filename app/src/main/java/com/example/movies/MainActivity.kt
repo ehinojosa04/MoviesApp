@@ -12,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -44,6 +45,14 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         auth = FirebaseAuth.getInstance()
+
+        // Initialize the FloatingActionButton and set its click listener
+        val fabAddMovie = findViewById<FloatingActionButton>(R.id.add_button)
+        fabAddMovie.setOnClickListener {
+            // Start the Edit activity to add a new movie
+            val intent = Intent(this, Edit::class.java)
+            startActivity(intent)
+        }
 
         readDB()
     }
@@ -105,7 +114,7 @@ class MainActivity : AppCompatActivity() {
             R.id.log_out -> {
                 Toast.makeText(this, "Logging out", Toast.LENGTH_SHORT).show()
                 auth.signOut()
-                startActivity(Intent(this,Login::class.java))
+                startActivity(Intent(this, Login::class.java))
                 return true
             }
             R.id.profile -> {
